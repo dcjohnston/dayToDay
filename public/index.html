@@ -4,23 +4,56 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
-
+    <title>DayToDay</title>
     <!-- Bootstrap -->
-    <link href="bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+      [ng-cloak] {
+      display: none !important;
+      }
+    </style>
 
+  </head>
+  <body ng-cloak>
+    <div class="container-fluid">
+      <div class="row" ng-controller="todoListController">
+        <div class="col-xs-8 col-xs-offset-2 widget">
+          <div class="row">
+            <div class="col-xs-12 filter-buttons">
+              <button ui-sref="root">All</button>
+              <button ui-sref="root.complete">Finished</button>
+              <button ui-sref="root.todo">Unfinished</button>
+            </div>
+          </div>
+          <div class="row">
+            <form name="newTodo" ng-submit="add()" class="col-xs-12 submission-form" novalidate>
+                <input name="task" type="text" value="" ng-model="newTask" placeholder="Task" />
+                <input name="priority" type="number" min="1" max="5" ng-model="newPriority" value=""/>
+                <button type="submit"> <span class="glyphicon glyphicon-plus"></span> </button>
+          </div>
+          <div class="row">
+            <ul class="col-xs-12 list-group">
+              <li update-todo ng-repeat="todo in todos" class="list-group-item todo-item" ng-class="{completed: todo.completed}">
+                <button ng-click="removeTodo(todo)"> <span class="glyphicon glyphicon-remove"></span>  </button>
+                <button ng-click="toggleComplete(todo)"> <span class="glyphicon glyphicon-ok"></span> </button> 
+                <input type="text" class="todo-task" ng-model="todo.task"/>
+                <input type="number" max="5" min="1" class="todo-priority" ng-model="todo.priority"/>
+                <span class="todo-data" ng-bind="todo.time | date : 'hh:mm a'"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
-    <script data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
+    <script data-main="/js/main.js" src="/bower_components/requirejs/require.js"></script>
   </body>
 </html>
