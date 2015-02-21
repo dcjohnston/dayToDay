@@ -1,0 +1,85 @@
+li.todo-item {
+  margin-bottom: 10px;
+  border-radius: 10px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5em; }
+  li.todo-item:hover {
+    box-shadow: 0 0 10px #ddd; }
+  li.todo-item.completed input {
+    text-decoration: line-through; }
+  li.todo-item input.todo-task {
+    flex: 1 0 20%;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center; }
+  li.todo-item input.todo-priority {
+    flex: 0 1 5%;
+    margin-right: 10px; }
+  li.todo-item button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    position: relative;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: middle;
+    justify-content: center;
+    margin-right: 10px; }
+    li.todo-item button .glyphicon {
+      top: 0px; }
+    li.todo-item button .glyphicon-ok {
+      color: green; }
+    li.todo-item button .glyphicon-remove {
+      color: red; }
+
+.widget {
+  margin-top: 80px; }
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid black; }
+  .filter-buttons button {
+    flex: 0 1 25%;
+    border-radius: 10px;
+    background: none;
+    outline: none;
+    border: 1px solid black; }
+
+.submission-form {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  min-height: 40px; }
+  .submission-form input {
+    text-align: center;
+    flex: none;
+    margin-right: 20px;
+    border: none;
+    border-bottom: 1px solid #ddd; }
+  .submission-form input:first-child {
+    flex: 1 1 auto; }
+  .submission-form button {
+    background: none;
+    outline: none;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    flex: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .submission-form button .glyphicon {
+      top: 0;
+      font-size: 1.4em;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+
+/*# sourceMappingURL=app.css.map */
